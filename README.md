@@ -186,7 +186,7 @@ from django.db.models import Q
 >>> Attendance.objects.filter(Q(grade=20) | ~Q(grade=16))
 >>> Attendance.objects.filter(Q(grade=20) | ~Q(grade=16))
 
-##Templates
+## Templates
 ```
 return render(request, 'notas/home.html', {'variable_sent_by_view':'Hello'})
 ```
