@@ -12,7 +12,7 @@ pip install Django
 
 ### Then create a new Django project
 $ django-admin startproject project
-
+```
 project /
 manage.py
     project /
@@ -20,12 +20,12 @@ manage.py
         settings.py
         urls.py
         wsgi.py
-
+```
 
 
 ### Start a new app
 $ python manage.py startapp notas
-
+```
 project/
     notas/
         __init__.py
@@ -36,15 +36,17 @@ project/
         models.py
         tests.py
         views.py
-
+```
 
 ### Add new app to settings.py INSTALLED_APPS
 
 ### Go to project urls.py and add a new path to your app
+```
 urlpatterns = [
     *** path('notas/', include('notas.urls')), ***
     path('admin/', admin.site.urls),
 ]
+```
 
 ## Write Models
 ```
@@ -208,8 +210,8 @@ return render(request, 'notas/home.html', {'variable_sent_by_view':'Hello'})
     <li> {{ i|get_first }} , {{ i|get_second}} </li>
 {% endfor %}
 ```
-
-### 
+And on views.py
+```
 @register.filter
 def get_first(list):
         return list[0]
@@ -217,3 +219,4 @@ def get_first(list):
 @register.filter
 def get_second(list):
         return list[1]
+```
