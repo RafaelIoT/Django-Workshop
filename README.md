@@ -1,6 +1,13 @@
 # Django-Workshop
 
-### First install Django
+### First create virtualenv
+$ pip install virtualenvwrapper-win
+
+$ mkvirtualenv project
+
+$ workon project
+
+### Intall Django
 pip install Django
 
 ### Then create a new Django project
@@ -70,6 +77,25 @@ class Attendance(models.Model):
     
 ```
 
+### the Admin page
+$ python manage.py createsuperuser
+
+Open admin.py and register models to show them on admin
+```
+from django.contrib import admin
+from .models import *
+
+class StudentAdmin(admin.ModelAdmin):
+    pass
+
+class AttendanceAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(Student, StudentAdmin)
+admin.site.register(Attendance, AttendanceAdmin)
+
+```
 
 ### Make migrations 
 $ python manage.py makemigrations notas
