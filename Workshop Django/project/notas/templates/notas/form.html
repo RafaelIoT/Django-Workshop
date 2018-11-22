@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static from staticfiles %}
+  <title>Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="{% static 'js/dashboard.js' %}" defer></script>
+  <script type="text/javascript" src="{% static 'script/bootstrap.min.js' %}" defer></script>
+  <script type="text/javascript" src="{% static 'script/jquery.min.js' %}" defer></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap.min.css' %}" /> 
+
+</head>
+
+<style>
+body{
+	background: rgba(0,0,0,0.8);
+}
+
+.container{
+	width: 400px;
+	border: 1px solid;
+	padding: 20px;
+	border-radius: 4px;
+	margin-top: 200px;
+	background: rgba(255,255,255,0.9);
+	box-shadow: 0 0 20px -11px white;
+}
+
+</style>
+
+<body>
+
+<div class="container">
+	<h2> Login </h2>
+	<form action="/notas/login/" method="post">
+		{% csrf_token %}
+		{% if response %}
+			<p>{{ response }}</p>
+		{% endif %}
+		<div class="form-group">
+			<label for="email">Your Email: </label>
+			<input class="form-control" id="email" type="text" name="email" ><br>
+		</div>
+		<div class="form-group">
+			<label for="username">Your username: </label>
+			<input class="form-control" id="username" type="text" name="username" ><br>
+		</div>
+		<div class="form-group">
+			<label for="password">Your password: </label>
+			<input class="form-control" id="password" type="text" name="password" ><br>
+		</div>
+		<button type="submit" class="btn btn-default">Submit</button>
+	</form>
+
+</body>
+</html>
