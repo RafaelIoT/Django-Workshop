@@ -111,6 +111,7 @@ $ python manage.py migrate
 $ python manage.py sqlmigrate notas 0001
 
 ### Django shell
+```
 $ pyhton manage.py shell
 >>> from notas.models import *
 >>> from django.contrib.auth.models import User
@@ -118,7 +119,7 @@ $ pyhton manage.py shell
 >>> u.save()
 >>> User.objects.all()
 >>> user.student
-
+```
 
 ## Write views
 ```
@@ -175,6 +176,7 @@ class NewGrade(forms.Form):
 ```
 
 ### Models filters
+```
 >>> Attendace.objects.filter(class_name='CSS')
 >>> Attendace.objects.filter(class_name='CSS', grade=20)
 >>> Attendace.objects.filter(class_name='CSS', grade__lt=20)
@@ -182,12 +184,14 @@ class NewGrade(forms.Form):
 >>> Attendace.objects.filter(grade__lte=20, grade_gt=16)
 >>> Attendance.objects.order_by('grade')
 >>> Attendance.objects.filter(class_name__contains='P')
+```
 
 ### Complex queries
+```
 from django.db.models import Q
 >>> Attendance.objects.filter(Q(grade=20) | ~Q(grade=16))
 >>> Attendance.objects.filter(Q(grade=20) | ~Q(grade=16))
-
+```
 ## Templates
 ```
 return render(request, 'notas/home.html', {'variable_sent_by_view':'Hello'})
